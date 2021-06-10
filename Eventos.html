@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Entrada</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script>
+		function frm(){
+			var nom = document.getElementById('nombre');
+			if (nom.value == '') {
+				nom.style.backgroundColor = "red";
+				nom.style.color = "white";
+				alert('Ingrese el nombre');
+			}
+			else{
+				nom.style.backgroundColor = "white";
+				nom.style.color = "black";
+			}
+
+			var ape = document.getElementById('apellido');
+			if (ape.value == '') {
+				ape.style.backgroundColor = "red";
+				ape.style.color = "white";
+				alert('Ingrese el apellido');
+			}
+			else{
+				ape.style.backgroundColor = "white";
+				ape.style.color = "black";
+			}
+
+			var tel = document.getElementById('telefono');
+			if (tel.value == '') {
+				tel.style.backgroundColor = "red";
+				tel.style.color = "white";
+				alert('Ingrese el telefono');
+			}
+			else{
+				tel.style.backgroundColor = "white";
+				tel.style.color = "black";
+			}
+
+			var ciu = document.getElementById('ciudad');
+			if (ciu.value == '') {
+				ciu.style.backgroundColor = "red";
+				ciu.style.color = "white";
+				alert('Ingrese la ciudad');
+			}
+			else{
+				ciu.style.backgroundColor = "white";
+				ciu.style.color = "black";
+			}
+
+			var eda = document.getElementById('edad');
+			if (eda.value == '') {
+				eda.style.backgroundColor = "red";
+				eda.style.color = "white";
+				alert('Ingrese la edad');
+			}
+			else{
+				eda.style.backgroundColor = "white";
+				eda.style.color = "black";
+			}
+			return false;
+		}
+		function solonum(e){
+			key=e.KeyCode || e.which;
+			teclado=String.fromCharCode(key);
+			numero="0123456789";
+			especiales="8-37-38-46";
+			te=false;
+			for(var i in especiales){
+				if (key==especiales[i]){
+					te=true;
+				}
+			}
+			if(numero.indexOf(teclado)==-1 && !te){
+				alert('Ingrese solo numeros');
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<br>
+	<br>
+	<div class="container">
+		<form action="">
+			<table>
+				<tr>
+					<td><label>Nombre</label></td>
+					<td><input type="text" id="nombre"></td>
+				</tr>
+				<tr>
+					<td><label>Apellido</label></td>
+					<td><input type="text" id="apellido"></td>
+				</tr>
+				<tr>
+					<td><label>Telefono</label></td>
+					<td><input type="text" id="telefono" onkeypress="return solonum(event);"></td>
+				</tr>
+				<tr>
+					<td><label>Ciudad</label></td>
+					<td><input type="text" id="ciudad"></td>
+				</tr>
+				<tr>
+					<td><label>Edad</label></td>
+					<td><input type="text" id="edad" onkeypress="return solonum(event);"></td>
+				</tr>
+			</table>
+			<input type="submit" onclick="return frm();" value="Enviar">
+		</form>
+	</div>
+</body>
+</html>
